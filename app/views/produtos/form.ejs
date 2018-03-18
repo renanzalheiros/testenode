@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div class="errors">
+            <%if(validationErrors) { %>
+            <ul>
+                <% for(var i=0; i<validationErrors.length; i++) {%>
+                <li><%=validationErrors[i].param%> - <%=validationErrors[i].msg%></li>
+                <% } %>
+            </ul>
+            <%}%>
+        </div>
+		<form action="/produtos" method="post">
+			<div>
+				<label for="titulo">Título</label>
+				<input id="titulo" type="text" name="titulo" placeholder="Título" value="<%=produto.titulo%>">
+			</div>
+			<div>
+				<label for="preco">Preço</label>
+				<input id="preco" type="text" name="preco" placeholder="15.45" value="<%=produto.preco%>">
+			</div>
+			<div>
+				<label for="Descricao">Descricao</label>
+				<textarea id="descricao" type="text" name="descricao" placeholder="Descrição" cols="25" rows="10"><%=produto.descricao%></textarea>
+			</div>
+
+			<input type="submit" value="Salvar">
+		</form>
+	</body>
+</html>
